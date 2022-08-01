@@ -1,8 +1,22 @@
 body {
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
+button {
+    display: inline-block;
 
+    text-align: center;
+    height: 50px;
+    max-width: fit-content;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+
+}
 
 .box {
     background-color: aquamarine;

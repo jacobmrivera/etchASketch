@@ -25,7 +25,7 @@ function createGrid(gridSize){
             box.onmouseover = function(){
                 box.style.backgroundColor = 'green';
             };
-            
+
             box.style.width = boxWidth + 'px';
             box.style.height = boxWidth + 'px';
             row.appendChild(box);
@@ -43,7 +43,7 @@ function getGridSize(){
     gridNum = parseInt(prompt("Please the number of rows you would like the grid to be"), 10);
     console.log(gridNum);
    
-    if (gridNum != NaN) {
+    if (!isNaN(gridNum)) {
         rowNum = gridNum;
         colNum = gridNum;
 
@@ -52,11 +52,15 @@ function getGridSize(){
             container.removeChild(container.lastChild);
          }
 
-        if(gridNum >100){
+        if(gridNum > 100){
             gridNum = 100;
+        } else if (gridNum == 0){
+            gridNum = 1
         }
     
         createGrid(gridNum);
+    } else {
+        window.alert("Please enter a number");
     }
 
 }
