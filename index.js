@@ -1,4 +1,5 @@
 
+// creates a grid based upon the size given
 function createGrid(gridSize){
     const container = document.querySelector('#container');
 
@@ -17,7 +18,7 @@ function createGrid(gridSize){
         
         let boxWidth = (window.innerHeight-150- rowNum*.25) /rowNum;    
 
-        console.log(boxWidth);
+        // console.log(boxWidth);
 
         for (let j = 0; j < colNum; j++) {
             let box = document.createElement('div');
@@ -31,15 +32,11 @@ function createGrid(gridSize){
             row.appendChild(box);
 
         }
-
         container.appendChild(row);
-
     }
 }
 
 function getGridSize(){
-    // let gridNum = prompt("Please the number of rows you would like the grid to be");
-
     gridNum = parseInt(prompt("Please the number of rows you would like the grid to be"), 10);
     console.log(gridNum);
    
@@ -52,7 +49,7 @@ function getGridSize(){
             container.removeChild(container.lastChild);
          }
 
-        if(gridNum > 100){
+        if (gridNum > 100){
             gridNum = 100;
         } else if (gridNum == 0){
             gridNum = 1
@@ -65,5 +62,5 @@ function getGridSize(){
 
 }
 
-
+// create the grid as soon as the page loads
 createGrid(16)
