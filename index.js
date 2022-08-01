@@ -1,44 +1,65 @@
-const container = document.querySelector('#container');
 
-const rowNum = 64;
-const colNum = 64;
+function createGrid(gridSize){
+    const container = document.querySelector('#container');
 
-container.style.display = 'flex';
-container.style.justifyContent = 'center';
+    const rowNum = gridSize;
+    const colNum = gridSize;
 
-for (let i = 0; i < rowNum; i++){
-    let row = document.createElement('div');
-    row.classList.add('row');
-    row.setAttribute('id','row' + i);
-    row.style.display = 'flex';
-    row.style.flexDirection = 'column'
-    
+    container.style.display = 'flex';
+    container.style.justifyContent = 'center';
 
-    // console.log('row' + i)
-    
-    let boxWidth = (window.innerHeight-150) /rowNum;
-    // boxWidth = container.height / rowNum;
-    // let boxHeight = screen.hieght / colNum;
-
-    console.log(boxWidth);
-
-    for (let j = 0; j < colNum; j++) {
-        let box = document.createElement('div');
-        box.classList.add('box');
-        box.onmouseover = function(){
-            box.style.backgroundColor = 'green';
-        };
-
+    for (let i = 0; i < rowNum; i++){
+        let row = document.createElement('div');
+        row.classList.add('row');
+        row.setAttribute('id','row' + i);
+        row.style.display = 'flex';
+        row.style.flexDirection = 'column'
         
-        // box.style.width = boxWidth + 'px';
-        // box.style.height = boxHeight + 'px';
-        // console.log('${boxWidth}');
-        box.style.width = boxWidth + 'px';
-        box.style.height = boxWidth + 'px';
-        row.appendChild(box);
+        let boxWidth = (window.innerHeight-150- rowNum*.25) /rowNum;    
+
+        console.log(boxWidth);
+
+        for (let j = 0; j < colNum; j++) {
+            let box = document.createElement('div');
+            box.classList.add('box');
+            box.onmouseover = function(){
+                box.style.backgroundColor = 'green';
+            };
+            
+            box.style.width = boxWidth + 'px';
+            box.style.height = boxWidth + 'px';
+            row.appendChild(box);
+
+        }
+
+        container.appendChild(row);
 
     }
+}
 
-    container.appendChild(row);
+function getGridSize(){
+    // let gridNum = prompt("Please the number of rows you would like the grid to be");
+
+    gridNum = parseInt(prompt("Please the number of rows you would like the grid to be"), 10);
+    console.log(gridNum);
+   
+    if (gridNum != NaN) {
+        rowNum = gridNum;
+        colNum = gridNum;
+
+        const container = document.querySelector("#container");
+        while (container.firstChild) {
+            container.removeChild(container.lastChild);
+         }
+
+        if(gridNum >100){
+            gridNum = 100;
+        }
+    
+        createGrid(gridNum);
+    }
 
 }
+
+
+createGrid(16)

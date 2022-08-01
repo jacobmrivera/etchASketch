@@ -1,17 +1,12 @@
-.box {
-    background-color: aquamarine;
-    /* width: 2vw;
-    height: 2vw; */
-    /* padding: 10px; */
-    /* border-style: solid; */
-    /* border-color: black; */
-    /* border-width: 5px; */
-    margin: 1px;
-    /* -webkit-transition: padding 2s; */
+body {
+    
 }
 
-/* .box:hover {
-    background-color: green;
-    /* transition-timing-function: ease-out; */
-    /* transition-delay: 1s; */
-/* } */ 
+
+
+.box {
+    background-color: aquamarine;
+    margin: .25px;
+}
+
+
