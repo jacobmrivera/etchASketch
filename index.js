@@ -1,7 +1,7 @@
 const container = document.querySelector('#container');
 
-const rowNum = 16;
-const colNum = 16;
+const rowNum = 64;
+const colNum = 64;
 
 container.style.display = 'flex';
 container.style.justifyContent = 'center';
@@ -15,6 +15,12 @@ for (let i = 0; i < rowNum; i++){
     
 
     // console.log('row' + i)
+    
+    let boxWidth = (window.innerHeight-150) /rowNum;
+    // boxWidth = container.height / rowNum;
+    // let boxHeight = screen.hieght / colNum;
+
+    console.log(boxWidth);
 
     for (let j = 0; j < colNum; j++) {
         let box = document.createElement('div');
@@ -22,6 +28,13 @@ for (let i = 0; i < rowNum; i++){
         box.onmouseover = function(){
             box.style.backgroundColor = 'green';
         };
+
+        
+        // box.style.width = boxWidth + 'px';
+        // box.style.height = boxHeight + 'px';
+        // console.log('${boxWidth}');
+        box.style.width = boxWidth + 'px';
+        box.style.height = boxWidth + 'px';
         row.appendChild(box);
 
     }
